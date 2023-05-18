@@ -1,0 +1,175 @@
+<div *ngIf="title == 'Form'">
+  <h1 mat-dialog-titie style="margin-left: 20px; margin-top: 10px">
+    Test case Files
+  </h1>
+  <div mat-dialog-content>
+    <form [formGroup]="uploadForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Action Level ID</mat-label>
+        <mat-select
+          formControlName="category"
+          (selectionChange)="selectedActionType($event)"
+          [(ngModel)]="data.action_level"
+          placeholder="Category"
+        >
+          <mat-option
+            [value]="drp.ACTION_LEVEL_ID"
+            *ngFor="let drp of actiontype"
+          >
+            {{ drp.ACTION_LEVEL_LICENSE_NAME }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="uploadForm.controls['category'].errors?.['required']">Please Select Action Level</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rules/Queues/Aggregates</mat-label>
+        <mat-select
+          formControlName="rule"
+          (selectionChange)="selectedValueRule($event)"
+          [(ngModel)]="data.ruletype"
+          placeholder="Category"
+        >
+          <mat-option [value]="drp.LID" *ngFor="let drp of rulelist">
+            {{ drp.SDESCRIPTION }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="uploadForm.controls['rule'].errors?.['required']">Please select rule/queues/aggregates type</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Select Rule Name</mat-label>
+        <mat-select
+          formControlName="ruleName"
+          (valueChange)="changerulename($event)"
+          [(ngModel)]="data.ruleid"
+          placeholder="Rule Name"
+        >
+          <mat-option>
+            <ngx-mat-select-search
+              [formControl]="ruleFilterCtrl"
+              placeholderLabel="Search Rule"
+              noEntriesFoundLabel="No rule found"
+              style="width: 10px"
+            ></ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            [value]="drp.LRULEID"
+            *ngFor="let drp of filteredRules | async"
+          >
+            {{ drp.L10N_VALUE }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="uploadForm.controls['ruleName'].errors?.['required']">please select rule name</mat-error>
+      </mat-form-field>
+
+
+      <mat-slide-toggle
+        class="example-margin-toggle"
+        color="primary"
+        [checked]="checked"
+        [disabled]="disabled"
+        [(ngModel)]="rollback"
+        formControlName="rollback"
+        (change)="setValue($event)"
+      >
+        Rollback Transaction
+      </mat-slide-toggle>
+
+      <mat-form-field>
+        <div>
+          <mat-toolbar>
+            <!-- Display files names -->
+            <input
+              matInput
+              readonly
+              formControlName="file"
+              name="name"
+              [(ngModel)]="fileAttr"
+              required
+            />
+            <!-- Browse Button -->
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+                <mat-icon>upload_file</mat-icon>
+              </button>
+            <!-- <button mat-flat-button color="primary">Browse File</button> -->
+          </mat-toolbar>
+          <!-- Fetch selected filed on change -->
+          <input
+            type="file"
+            #fileInput
+            id="uploadFile"
+            (change)="onChangeFileField($event)"
+            name="uploadFile"
+            formControlName="file"
+            accept="xls/*"
+            required
+          />
+        </div>
+        <mat-error *ngIf="uploadForm.controls['file'].errors?.['required']">Please upload file</mat-error>
+        <mat-error *ngIf="uploadForm.controls['file'].errors?.['inValidExt']">File not supported</mat-error>
+      </mat-form-field>
+
+    </form>
+  </div>
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button
+      
+      mat-raised-button
+      (click)="addFile()"
+      [disabled]="uploadForm.invalid || fileAttr == 'Choose File'"
+    >
+      SUBMIT
+    </button>
+  </div>
+</div>
+<div *ngIf="title == 'Info'">
+  <div class="closedailog">
+    <h1 mat-dialog-titie style="margin-left: 20px; margin-top: 10px">
+      Test case File Information
+    </h1>
+    <a href="javascript:void(0)" (click)="dailogclose()">
+      <mat-icon class="material-symbols-outlined"> cancel </mat-icon>
+    </a>
+  </div>
+
+  <div mat-dialog-content>
+
+      <div class="grid-container">
+        <div class="grid-item">
+          <span><strong> Action Level : </strong> </span>
+          {{ card_data.data.action_level }}
+        </div>
+        <div class="grid-item">
+          <span><strong>Rule Name : </strong></span
+          >{{ card_data.data.rule_name }}
+        </div>
+        <div class="grid-item">
+          <span><strong>Rule Type :</strong></span>
+          {{ card_data.data.rule_type }}
+        </div>
+        <div class="grid-item">
+          <span><strong>Message :</strong></span>
+          {{ card_data.data.message == null ? "SUCCESS" : card_data.data.message }}
+        </div>
+      </div>
+  </div>
+</div>
+
+<div *ngIf="title == 'File'">
+  <div class="closedailog">
+    <h1 mat-dialog-titie style="margin-left: 20px; margin-top: 10px">
+      Download Test File Templete.
+    </h1>
+    <a href="javascript:void(0)" (click)="dailogclose()">
+      <mat-icon class="material-symbols-outlined"> cancel </mat-icon>
+    </a>
+  </div>
+
+  <div mat-dialog-content>
+
+    
+  </div>
+</div>

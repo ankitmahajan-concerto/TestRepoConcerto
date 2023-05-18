@@ -1,0 +1,106 @@
+mat-form-field{
+    width: 100%;
+    
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  .example-margin-toggle{
+    margin-bottom: 1em;
+  }
+  ::ng-deep.mdc-form-field
+  {
+    gap:1em;
+  }
+  
+  ::ng-deep.mat-mdc-dialog-container {
+     width: auto;
+  }
+
+  ::ng-deep.cdk-overlay-pane{
+    // width: 100vw !important;
+  }
+
+  .closedailog{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto  ;
+    background-color: transparent;
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: #000;
+  }
+
+  .mat-form-field {
+    margin: 40px 0;
+    width: 500px !important;
+}
+.mat-toolbar-single-row {
+    height: auto !important;
+    background: transparent;
+}
+.mat-toolbar-single-row button {
+    width: 200px;
+}
+.mat-form-field {
+    width: 100%;
+}
+#uploadFile {
+    top: 0px;
+    left: 0px;
+    width: 100%;    
+    z-index: 9;
+    opacity: 0;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+
+.mat-toolbar-single-row button{
+    width: 40px !important;
+    background: #2726dd;
+}
+
+
+.mat-toolbar input {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 28px;
+    font-family: Roboto, sans-serif;
+    letter-spacing: .0125em;
+    margin: 0;
+}
+
+::ng-deep.swal2-styled.swal2-confirm {
+  background-color: #2726dd !important;
+}
+
+.mat-mdc-raised-button.mat-unthemed {
+  background-color: #2726dd;
+  color: #fff;
+}
+
+.mat-mdc-raised-button:disabled {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.38);
+}

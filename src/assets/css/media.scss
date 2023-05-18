@@ -1,0 +1,13 @@
+@media only screen and (min-height: 800px) {
+    .example-container {
+        max-height: 55vh;
+    }
+}
+
+@media only screen and (max-height: 768px) {
+     .example-container {
+        max-height: 45vh;
+    }
+  }
+  
+

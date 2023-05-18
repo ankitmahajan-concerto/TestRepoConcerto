@@ -1,0 +1,51 @@
+        <!-- <label for=""><h1>Product Freshness</h1></label>
+      <mat-radio-group  formControlName="comment" class="example-radio-group">
+    
+      <mat-radio-button class="example-radio-button" *ngFor="let fresh of freshnessList" [value]="fresh">
+          {{fresh}}
+        </mat-radio-button>
+      </mat-radio-group> -->
+  
+        <!-- 
+      <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="date"   [(ngModel)]="data.description" placeholder="Description"></textarea>
+          <!-- <input matInput placeholder="Description"> -->
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <!-- <mat-hint>Hint</mat-hint> -->
+        <!-- </mat-form-field> -->
+        <!-- <lable for = ""><h1>Product Freshness </h1></lable> -->
+  
+        <!-- <mat-form-field style="width: 100%;">
+          <mat-label>Choose File</mat-label>
+          <button mat-icon-button matPrefix     (click)="f_input.click()">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  
+    
+          <input type="text" readonly matInput [formControl]="display" />
+          <input
+      type="file"
+      multiple
+      hidden
+      #f_input
+      
+      (change)="onChangeFileField($event)" -->
+        <!-- /> -->
+        <!-- (change)="handleFileInputChange(f_input.files)" -->
+  
+        <!-- <mat-error>this field is required</mat-error>
+      </mat-form-field> -->
+
+       <!-- {{data| json}} -->
+
+
+         <!-- <mat-form-field appearance="outline">
+          <mat-label>Outline form field</mat-label>
+          <input formControlName="productName"  [(ngModel)]="data.name"  matInput placeholder="placeholder">
+  
+           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      <!-- <mat-hint>Hint</mat-hint> -->
+      <!-- </mat-form-field> -->
+
+                <!-- <mat-option value="option">Select Rule Name</mat-option> -->

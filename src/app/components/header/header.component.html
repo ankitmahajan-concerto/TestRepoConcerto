@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-toolbar color="primary" class="mat-elevation-z9">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>dashboard</mat-icon>
+    </button>
+    <span>PRM Rule Testing </span>
+    <span class="example-spacer"></span>
+    <a
+      href="javascript:void(0)"
+      aria-label="Add Test Case File"
+      class="btn"
+      (click)="openDialog()"
+    >
+      Add Test Case File
+    </a>
+  </mat-toolbar>
+  <div class="primary-header">
+    <h4>Please download sample template file before test.</h4>
+    <mat-form-field class="mat-form-field" appearance="fill">
+      <mat-label> choose a file extension you want</mat-label>
+      <mat-select [(ngModel)]="file_ext" (ngModelChange)="onExtSelection()">
+        <mat-option *ngFor="let ext of fileExt" [value]="ext">{{
+          ext
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
